@@ -15,14 +15,15 @@ export class ImageList extends Component {
 
 
     getData = (pageNum) => {
+        let targetUrl = process.env.REACT_APP_API_URL
         axios
-            .get(`photos?client_id=${process.env.REACT_APP_ACCESS_KEY}&&page=${pageNum}`)
+            .get(`${targetUrl}photos?client_id=${process.env.REACT_APP_ACCESS_KEY}&&page=${pageNum}`)
             .then(res => this.setState({ images: this.state.images.concat(res.data) }))
             .catch(err => console.log(err))
 
     }
     componentDidMount() {
-        const { count, start } = this.state;
+        const { start } = this.state;
         this.getData(start)
     }
 

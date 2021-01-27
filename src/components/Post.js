@@ -31,7 +31,8 @@ export default function Post({ postDetail }) {
                 </h5>
 
                 <div className="post__comments">
-                    {postDetail.user.total_likes > 0 ? <span>❤️{postDetail.user.total_likes}</span> : <span>🤍0</span>}
+                    {postDetail.user.total_likes > 0 ? <span role="img" aria-label="heart">❤️{postDetail.user.total_likes}</span>
+                        : <span role="img" aria-label="heart">🤍0</span>}
                 </div>
             </Grid>
             <br />
