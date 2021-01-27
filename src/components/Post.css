@@ -44,6 +44,12 @@
 }
 
 .post__location {
-  height: 14px !important;
-  fill: gray;
+  height: 12px !important;
+  fill: gray !important;
+  width: 14px !important;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

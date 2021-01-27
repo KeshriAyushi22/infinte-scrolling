@@ -15,16 +15,18 @@ export default function Post({ postDetail }) {
 
                         src={postDetail.user.profile_image.small}
                     />
-                    <h3>{postDetail.user.instagram_username}</h3>
-                    <br />
-                    <LocationOn className='post__location'>{postDetail.user.location}</LocationOn>
+                    <Grid item>
+                        <h4>{postDetail.user.username}</h4>
+                        <LocationOn className='post__location'>{postDetail.user.location}</LocationOn>
+                    </Grid>
                 </Grid>
 
 
+
                 <img className="post__image" src={postDetail.urls.regular} alt="post" />
-                <h4 className="post__text">
-                    {postDetail.user.instagram_username} <span className="post__caption">{postDetail.user.bio}</span>
-                </h4>
+                <h5 className="post__text">
+                    {postDetail.user.username} <span className="post__caption">{postDetail.user.bio}</span>
+                </h5>
 
                 <div className="post__comments">
                     {postDetail.user.total_likes > 0 ? <span>❤️{postDetail.user.total_likes}</span> : <span>🤍0</span>}

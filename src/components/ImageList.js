@@ -43,7 +43,7 @@ export class ImageList extends Component {
                     dataLength={this.state.images.length}
                     next={this.fetchImages}
                     hasMore={true}
-                    loader={<CircularProgress style={{ alignContent: 'center' }} />}
+                    loader={<CircularProgress />}
 
                 >
                     {this.state.images.map(image => (
