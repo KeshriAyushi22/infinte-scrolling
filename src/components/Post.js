@@ -12,12 +12,14 @@ export default function Post({ postDetail }) {
                 <Grid className="post__header">
                     <Avatar
                         className="post__avatar"
-
                         src={postDetail.user.profile_image.small}
                     />
                     <Grid item>
                         <h4>{postDetail.user.username}</h4>
-                        <LocationOn className='post__location'>{postDetail.user.location}</LocationOn>
+                        <span className='post__locationName'>
+                            <LocationOn className='post__location' />
+                            {postDetail.user.location}
+                        </span >
                     </Grid>
                 </Grid>
 

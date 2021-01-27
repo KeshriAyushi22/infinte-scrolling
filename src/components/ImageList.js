@@ -44,7 +44,7 @@ export class ImageList extends Component {
                     next={this.fetchImages}
                     hasMore={true}
                     loader={<CircularProgress />}
-
+                    className='infinite__scroller'
                 >
                     {this.state.images.map(image => (
                         <Post key={image.id} postDetail={image} />

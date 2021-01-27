@@ -44,7 +44,7 @@
 }
 
 .post__location {
-  height: 12px !important;
+  height: 10px !important;
   fill: gray !important;
   width: 14px !important;
 }
@@ -52,4 +52,12 @@
 h4 {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.post__locationName {
+  color: gray;
+  font-size: x-small;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 2px;
+  display: flex;
 }
