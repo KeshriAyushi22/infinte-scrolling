@@ -9,11 +9,12 @@
 /* Optional style for fetched images */
 .images {
   display: flex;
-  max-width: 80%;
+  max-width: 100%;
   margin: 2% auto;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
 }
-.infinite__scroller {
-  overflow-y: hidden !important;
+.images > .infinite-scroll-component__outerdiv{
+  width: 100% !important;
 }
+
