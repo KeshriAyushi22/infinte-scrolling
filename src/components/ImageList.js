@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Image from './Image';
+import Post from './Post';
+import { Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export class ImageList extends Component {
     state = {
@@ -13,7 +15,7 @@ export class ImageList extends Component {
 
     getData = (pageNum) => {
         axios
-            .get(`https://api.unsplash.com/photos?client_id=6c446b49b72a4c559d9b9d67183d5c1de1981d16f309063c3b994086e6ce1a26&&page=${pageNum}`)
+            .get(`photos?client_id=${process.env.REACT_APP_ACCESS_KEY}&&page=${pageNum}`)
             .then(res => this.setState({ images: res.data }))
             .catch(err => console.log(err))
 
@@ -28,7 +30,7 @@ export class ImageList extends Component {
         const { count, start } = this.state;
         this.setState({ start: this.state.start + count });
         axios
-            .get(`https://api.unsplash.com/photos?client_id=6c446b49b72a4c559d9b9d67183d5c1de1981d16f309063c3b994086e6ce1a26&&page=${start}`)
+            .get(`photos?client_id=${process.env.REACT_APP_ACCESS_KEY}&&page=${start}`)
             .then(res =>
                 this.setState({ images: this.state.images.concat(res.data) })
             );
@@ -36,20 +38,20 @@ export class ImageList extends Component {
 
     render() {
         return (
-            <div className='images'>
+            <Grid className='images' container direction='row'>
                 <InfiniteScroll
                     dataLength={this.state.images.length}
                     next={this.fetchImages}
                     hasMore={true}
-                    loader={<h4>Loading...</h4>}
+                    loader={<CircularProgress style={{ alignContent: 'center' }} />}
 
                 >
                     {this.state.images.map(image => (
-                        <Image key={image.id} image={image} />
+                        <Post key={image.id} postDetail={image} />
                     ))}
-                    hiiii
+
                 </InfiniteScroll>
-            </div>
+            </Grid>
         );
     }
 }
